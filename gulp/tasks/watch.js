@@ -2,8 +2,6 @@ var gulp = require('gulp'),
 watch = require('gulp-watch'),
 browsersync = require('browser-sync').create();
 
-
-
 // Watch task - keep running and do things on the fly
 gulp.task('watch', function(){
 
@@ -21,4 +19,11 @@ gulp.task('watch', function(){
     watch('./app/assets//**/*.css', function() {
         gulp.start('cssinject');
     });
+});
+
+// css injection is cool! No browser refresh!
+// 2.Param sind die Dependencies. Sie werden vor dem Inject gestartet
+gulp.task('cssinject', ['styles'] , function(){
+    return gulp.src('./app/temp/styles/styles.css')
+    .pipe(browsersync.stream());
 });
