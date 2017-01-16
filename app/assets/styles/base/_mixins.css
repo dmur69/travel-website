@@ -17,3 +17,15 @@
         @mixin-content;
     }
 }
+
+/* Sorgt dafür, dass float zurückgesetzt wird und die Verschibung von
+nachfolgenden Elementen verschwindet:
+es wird fake-content hinzugefügt nach gefloateten Elementen
+  */ 
+@define-mixin clearfix     {
+    &::after  {
+        content: "";
+        clear: both;
+        display: table;
+    }
+}

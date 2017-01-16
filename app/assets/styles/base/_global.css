@@ -7,3 +7,15 @@ img {
     max-width: 100%;
     height: auto;
 }
+
+/* Lässt brwoser breiten anders berechnen:  
+es werden zunächst alle paddings berücksichtigt und dann width.
+Sprich: paddings werden auf width draufgerechnet
+*/
+* {
+    box-sizing: border-box;
+}
+
+a {
+    color: $mainOrange;
+}

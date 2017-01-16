@@ -470,6 +470,24 @@ img {
     height: auto;
 }
 
+/* Lässt brwoser breiten anders berechnen:  
+es werden zunächst alle paddings berücksichtigt und dann width.
+Sprich: paddings werden auf width draufgerechnet
+*/
+
+* {
+    box-sizing: border-box;
+}
+
+a {
+    color: #d59541;
+}
+
+/* Sorgt dafür, dass float zurückgesetzt wird und die Verschibung von
+nachfolgenden Elementen verschwindet:
+es wird fake-content hinzugefügt nach gefloateten Elementen
+  */
+
 .large-hero {
     border-bottom: 10px solid #2f5572; 
     position: relative;
@@ -558,9 +576,10 @@ img {
 }
 
 .wrapper {
+    overflow: hidden;
     padding-left: 18px;
     padding-right: 18px;
-    max-width: 1200px;
+    max-width: 1236px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -569,6 +588,17 @@ img {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.wrapper--bottom-margin {
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 530px) {
+
+  .wrapper--bottom-margin {
+    margin-bottom: 3.875rem;
+  }
 }
 
 .page-section {
@@ -626,4 +656,67 @@ img {
 
 .headline--light {
   font-weight: 100;
+}
+
+.headline--no-top-margin {
+  margin-top: 0;
+}
+
+/* Alle Spalten in einem Row mit etwas Padding vorsehen.
+    Achtung: Letzer Padding ist zu viel - verfälscht Layout */
+
+.row--gutters > div {
+  padding-right: 65px;
+}
+
+/* Trick, um Effekt von oben loszuwerden: 
+    Overflow erzeugen, um ihn dann mit hidden zu verstecken
+    Ziel der Übung: Verhältnis der Spalten beibehalten
+     */
+
+.row--gutters {
+  margin-right: -65px;
+}
+
+.row__bot-margin-until-medium {
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 800px) {
+
+  .row__bot-margin-until-medium {
+    margin-bottom: 0;
+  }
+
+  .row__medium-4 {
+    float: left;
+    width: 33.33%;
+  }
+
+  .row__medium-8 {
+    float: left;
+    width: 66.66%;
+  }
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.generic-container p {
+  line-height: 1.65;
+  font-weight: 400;
+}
+
+@media (min-width: 530px) {
+
+  .generic-container p {
+    font-size: 1.125rem;
+  }
+}
+
+.generic-container p a {
+  font-weight: 700;
 }

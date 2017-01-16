@@ -1,0 +1,38 @@
+.row{
+    /* Alle Spalten in einem Row mit etwas Padding vorsehen.
+    Achtung: Letzer Padding ist zu viel - verfälscht Layout */
+    &--gutters > div {
+        padding-right: 65px;
+    }
+
+    /* Trick, um Effekt von oben loszuwerden: 
+    Overflow erzeugen, um ihn dann mit hidden zu verstecken
+    Ziel der Übung: Verhältnis der Spalten beibehalten
+     */ 
+    &--gutters {
+        margin-right: -65px;
+    }
+
+    &__bot-margin-until-medium {
+        margin-bottom: 1rem;
+    }
+
+    @mixin atMedium {
+
+        &__bot-margin-until-medium {
+            margin-bottom: 0;
+        }
+
+        &__medium-4 {
+            float: left;
+            width: 33.33%;
+        }
+
+        &__medium-8 {
+            float: left;
+            width: 66.66%;
+        }
+    }
+
+    @mixin clearfix;
+}

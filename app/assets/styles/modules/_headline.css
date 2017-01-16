@@ -31,4 +31,8 @@
     &--light {
         font-weight: 100;
     }
+
+    &--no-top-margin {
+        margin-top: 0; 
+    }
 }
