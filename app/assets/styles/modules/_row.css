@@ -13,10 +13,21 @@
         margin-right: -65px;
     }
 
+    /* Gleicher Trick, jedoch für grössere Abstände */
+    &--gutters-large > div {
+        padding-right: 100px;
+    }
+
+    &--gutters-large {
+        margin-right: -100px;
+    }
+
+    /* Extra-margin für kleinere Screens */
     &__bot-margin-until-medium {
         margin-bottom: 1rem;
     }
 
+    /* Spezifische Behandlung für Screens ab Medium */
     @mixin atMedium {
 
         &__bot-margin-until-medium {
@@ -28,11 +39,18 @@
             width: 33.33%;
         }
 
+        &__medium-6 {
+            float: left;
+            width: 50%;
+        }
+
         &__medium-8 {
             float: left;
             width: 66.66%;
         }
     }
 
+    /* Anwendung vom definierten mixin, um floating Verschiebung zu korrigieren 
+    sieh. _mixins.css*/
     @mixin clearfix;
 }
