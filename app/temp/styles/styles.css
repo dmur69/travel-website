@@ -617,6 +617,11 @@ es wird fake-content hinzugefügt nach gefloateten Elementen
   color: white;
 }
 
+.page-section--testimonials {
+  background: url('/assets/images/testimonials-bg.jpg') top center no-repeat;
+  background-size: cover;/* Optimales Skalieren */
+}
+
 .headline {
     font-weight: 300;
     font-size: 1.9rem;
@@ -749,6 +754,7 @@ es wird fake-content hinzugefügt nach gefloateten Elementen
     font-size: 2.5rem;
     font-weight: 300;
     text-align: center;
+
 }
 
 @media (min-width: 530px) {
@@ -762,6 +768,10 @@ es wird fake-content hinzugefügt nach gefloateten Elementen
   font-weight: 500;
 }
 
+.section-title--blue {
+  color: #2f5572;
+}
+
 .section-title__icon {
   display: block;
   margin-left: auto;
@@ -772,6 +782,8 @@ es wird fake-content hinzugefügt nach gefloateten Elementen
 @media (min-width: 530px) {
 
   .section-title__icon {
+    position: relative;
+    top: 8px;
     margin-right: 0.5rem;
     margin-left: 0;
     margin-bottom: 0;
@@ -820,4 +832,35 @@ es wird fake-content hinzugefügt nach gefloateten Elementen
     font-size: 1.875rem;
     text-align: left;
   }
+}
+
+.testimonial {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 0 1.8125rem 1px 1.8125rem;
+}
+
+.testimonial__photo {
+  border-radius: 80px;
+  overflow: hidden;
+  width: 160px;
+  height: 160px;
+  margin: 0 auto -80px auto;
+  position: relative;
+  top: -80px;
+  border: 6px solid rgba(255, 255, 255, 0.7);
+}
+
+.testimonial__title {
+  color: #2f5572;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.testimonial__subtitle {
+  color: #d59541;
+  text-align: center;
+  font-weight: 400;
+  margin: 0.25rem 0 0.25rem 0;
 }
