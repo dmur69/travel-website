@@ -1,4 +1,4 @@
-.row{
+.row {
     /* Alle Spalten in einem Row mit etwas Padding vorsehen.
     Achtung: Letzer Padding ist zu viel - verfälscht Layout */
     &--gutters > div {
@@ -22,9 +22,22 @@
         margin-right: -100px;
     }
 
+    /* Gleicher Trick, jedoch für kleinere Abstände */
+    &--gutters-small > div {
+        padding-right: 40px;
+    }
+
+    &--gutters-small {
+        margin-right: -40px;
+    }
+
     /* Extra-margin für kleinere Screens */
     &__bot-margin-until-medium {
         margin-bottom: 1rem;
+    }
+
+    &--top-padding {
+        padding-top: 80px;
     }
 
     /* Spezifische Behandlung für Screens ab Medium */
@@ -53,4 +66,16 @@
     /* Anwendung vom definierten mixin, um floating Verschiebung zu korrigieren 
     sieh. _mixins.css*/
     @mixin clearfix;
+
+    /* Begin equal height rules */
+    &--equal-height-at-medium {
+        @mixin atMedium {
+            display: flex;
+        }
+
+        & > div {
+            float: none;
+            display: flex;
+        }
+    }
 }

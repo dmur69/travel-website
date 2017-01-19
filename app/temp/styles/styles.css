@@ -601,6 +601,16 @@ es wird fake-content hinzugefügt nach gefloateten Elementen
   }
 }
 
+.wrapper--no-padding-until-medium {
+  padding-left: 0px;
+  padding-right: 0px;
+
+  @mixi atMedium {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}
+
 .page-section {
     padding: 0;
 }
@@ -618,8 +628,15 @@ es wird fake-content hinzugefügt nach gefloateten Elementen
 }
 
 .page-section--testimonials {
-  background: url('/assets/images/testimonials-bg.jpg') top center no-repeat;
-  background-size: cover;/* Optimales Skalieren */
+  background-color: #e0e6ef;
+}
+
+@media (min-width: 800px) {
+
+  .page-section--testimonials {
+    background: url('/assets/images/testimonials-bg.jpg') top center no-repeat;
+    background-size: cover;/* Optimales Skalieren */
+  }
 }
 
 .headline {
@@ -694,10 +711,24 @@ es wird fake-content hinzugefügt nach gefloateten Elementen
   margin-right: -100px;
 }
 
+/* Gleicher Trick, jedoch für kleinere Abstände */
+
+.row--gutters-small > div {
+  padding-right: 40px;
+}
+
+.row--gutters-small {
+  margin-right: -40px;
+}
+
 /* Extra-margin für kleinere Screens */
 
 .row__bot-margin-until-medium {
   margin-bottom: 1rem;
+}
+
+.row--top-padding {
+  padding-top: 80px;
 }
 
 /* Spezifische Behandlung für Screens ab Medium */
@@ -731,6 +762,24 @@ es wird fake-content hinzugefügt nach gefloateten Elementen
   content: "";
   clear: both;
   display: table;
+}
+
+/* Begin equal height rules */
+
+@media (min-width: 800px) {
+
+  .row--equal-height-at-medium {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+.row--equal-height-at-medium > div {
+  float: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .generic-container p {
@@ -836,7 +885,16 @@ es wird fake-content hinzugefügt nach gefloateten Elementen
 
 .testimonial {
     background: rgba(255, 255, 255, 0.7);
+    padding: 0 18px 1px 18px;
+    margin-bottom: 100px;
+}
+
+@media (min-width: 530px) {
+
+  .testimonial {
     padding: 0 1.8125rem 1px 1.8125rem;
+    margin-bottom: 0px;
+  }
 }
 
 .testimonial__photo {
@@ -863,4 +921,9 @@ es wird fake-content hinzugefügt nach gefloateten Elementen
   text-align: center;
   font-weight: 400;
   margin: 0.25rem 0 0.25rem 0;
+}
+
+.testimonial--last {
+  margin-bottom: 0px;
+  padding-bottom: 0px;
 }
