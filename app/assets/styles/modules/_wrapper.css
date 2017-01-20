@@ -14,6 +14,7 @@
 
     &--bottom-margin {
         margin-bottom: 1rem;
+        
         @mixin atSmall {
             margin-bottom: 3.875rem;
         }
@@ -22,10 +23,21 @@
     &--no-padding-until-medium {
         padding-left: 0px;
         padding-right: 0px;
-
-        @mixi atMedium {
+        
+        @mixin atMedium {
             padding-left: 18px;
             padding-right: 18px;
         }    
+    }
+
+    &--no-padding-until-large {
+        padding-left: 0px;
+        padding-right: 0px;
+        
+        @mixin atLarge {
+            padding-left: 18px;
+            padding-right: 18px;
+        }    
+
     }
 }

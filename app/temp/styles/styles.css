@@ -604,8 +604,24 @@ es wird fake-content hinzugefügt nach gefloateten Elementen
 .wrapper--no-padding-until-medium {
   padding-left: 0px;
   padding-right: 0px;
+}
 
-  @mixi atMedium {
+@media (min-width: 800px) {
+
+  .wrapper--no-padding-until-medium {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}
+
+.wrapper--no-padding-until-large {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+@media (min-width: 1010px) {
+
+  .wrapper--no-padding-until-large {
     padding-left: 18px;
     padding-right: 18px;
   }
@@ -755,6 +771,30 @@ es wird fake-content hinzugefügt nach gefloateten Elementen
   }
 }
 
+/* Spezifische Behandlung für Screens ab Large */
+
+@media (min-width: 1010px) {
+
+  .row__bot-margin-until-large {
+    margin-bottom: 0;
+  }
+
+  .row__large-4 {
+    float: left;
+    width: 33.33%;
+  }
+
+  .row__large-6 {
+    float: left;
+    width: 50%;
+  }
+
+  .row__large-8 {
+    float: left;
+    width: 66.66%;
+  }
+}
+
 /* Anwendung vom definierten mixin, um floating Verschiebung zu korrigieren 
     sieh. _mixins.css*/
 
@@ -776,6 +816,22 @@ es wird fake-content hinzugefügt nach gefloateten Elementen
 }
 
 .row--equal-height-at-medium > div {
+  float: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@media (min-width: 1010px) {
+
+  .row--equal-height-at-large {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+.row--equal-height-at-large > div {
   float: none;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -889,7 +945,7 @@ es wird fake-content hinzugefügt nach gefloateten Elementen
     margin-bottom: 100px;
 }
 
-@media (min-width: 530px) {
+@media (min-width: 1010px) {
 
   .testimonial {
     padding: 0 1.8125rem 1px 1.8125rem;
