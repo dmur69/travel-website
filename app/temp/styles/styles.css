@@ -1011,6 +1011,12 @@ es wird fake-content hinzugefügt nach gefloateten Elementen
     position: absolute;
     width: 100%;    
     z-index: 2;
+    -webkit-transition: background-color 0.5s ease-in-out;
+    transition: background-color 0.5s ease-in-out;
+}
+
+.site-header--is-expanded {
+  background-color: rgba(47,85,114, 0.5);
 }
 
 @media (min-width: 800px) {
@@ -1020,8 +1026,11 @@ es wird fake-content hinzugefügt nach gefloateten Elementen
   }
 }
 
-.site-header__btn-container {
-  float: right;
+@media (min-width: 800px) {
+
+  .site-header__btn-container {
+    float: right;
+  }
 }
 
 .site-header__logo {
@@ -1046,29 +1055,126 @@ es wird fake-content hinzugefügt nach gefloateten Elementen
 }
 
 .site-header__menu-content {
-  display: none;
+  opacity: 0;/* Trick um Content einzublenden */
+  -webkit-transition: all .5s ease-out;
+  transition: all .5s ease-out;
+  position: relative;/* sonst wird z-index ignoriert */
+  z-index: -10;
+  -webkit-transform: scale(1.3);
+          transform: scale(1.3);/* Trick um Zoom-effekt hinzubekommen */
+  padding-top: 80px;
+  text-align: center;
 }
 
 @media (min-width: 800px) {
 
   .site-header__menu-content {
-    display: block;
+    opacity: 1;
+    z-index: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    padding-top: 0;
   }
 }
 
+.site-header__menu-content--is-visible {
+  opacity: 1;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
 .site-header__menu-icon {
-  height: 15px;
-  width: 15px;
-  background-color: white;
+  height: 25px;
+  width: 25px;
   position: absolute;
   top: 10px;
   right: 10px;
+  z-index: 10;
 }
+
+/* Hamburger Menu */
+
+.site-header__menu-icon::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0;
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+  -webkit-transition: -webkit-transform .5s ease-out;
+  transition: -webkit-transform .5s ease-out;
+  transition: transform .5s ease-out;
+  transition: transform .5s ease-out, -webkit-transform .5s ease-out;
+}
+
+.site-header__menu-icon--balken {
+  position: absolute;
+  top: 11px;
+  left: 0;
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  -webkit-transition: all .5s ease-out;
+  transition: all .5s ease-out;
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+}
+
+.site-header__menu-icon::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  -webkit-transform-origin: 0 100%;
+          transform-origin: 0 100%;
+  -webkit-transition: -webkit-transform .5s ease-out;
+  transition: -webkit-transform .5s ease-out;
+  transition: transform .5s ease-out;
+  transition: transform .5s ease-out, -webkit-transform .5s ease-out;
+}
+
+/*  */
 
 @media (min-width: 800px) {
 
   .site-header__menu-icon {
     display: none;
+  }
+}
+
+/* x Symbol zum schließen des mobilen Menus */
+
+.site-header__menu-icon-close::before {
+  -webkit-transform: rotate(45deg) scaleX(1.3);
+          transform: rotate(45deg) scaleX(1.3);
+}
+
+.site-header__menu-icon-close .site-header__menu-icon--balken {
+  opacity: 0;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+}
+
+.site-header__menu-icon-close::after {
+  -webkit-transform: rotate(-45deg) scaleX(1.3);
+          transform: rotate(-45deg) scaleX(1.3);
+}
+
+.primary-nav {
+
+    padding-top: 10px;
+}
+
+@media (min-width: 800px) {
+
+  .primary-nav {
+    padding-top: 0;
   }
 }
 
@@ -1085,8 +1191,28 @@ es wird fake-content hinzugefügt nach gefloateten Elementen
 
 .primary-nav li {
   list-style: none;
-  float: left;
-  padding-right: 10px;
+  padding-right: 5px;
+  display: inline-block;
+}
+
+@media (min-width: 800px) {
+
+  .primary-nav li {
+    padding-right: 20px;
+    float: left;
+    display: block;
+  }
+}
+
+.primary-nav li:last-child {
+  padding-right: 0;
+}
+
+@media (min-width: 800px) {
+
+  .primary-nav li:last-child {
+    padding-right: 20px;
+  }
 }
 
 .primary-nav a {
@@ -1094,9 +1220,23 @@ es wird fake-content hinzugefügt nach gefloateten Elementen
   text-decoration: none;
   font-weight: 300;
   display: block;
-  padding-top: 12px;
+  padding: 5px 8px;
+  font-size: 0.8rem;
+  background-color: rgba(47,85,114, 0.6);
 }
 
-.primary-nav--pull-right {
-  float: right;
+@media (min-width: 800px) {
+
+  .primary-nav a {
+    padding-top: 12px;
+    font-size: 1rem;
+    background-color: transparent;
+  }
+}
+
+@media (min-width: 800px) {
+
+  .primary-nav--pull-right {
+    float: right;
+  }
 }
